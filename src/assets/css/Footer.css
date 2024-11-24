@@ -1,0 +1,194 @@
+.contact-section,
+.contact-section * {
+  box-sizing: border-box;
+}
+.contact-section {
+  background: #ffffff;
+  padding: 42px 24px 42px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.lets-work-together {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--h2-font-family, "Epilogue-SemiBold", sans-serif);
+  font-size: var(--h2-font-size, 32px);
+  line-height: var(--h2-line-height, 42px);
+  font-weight: var(--h2-font-weight, 600);
+  position: relative;
+  width: 626px;
+}
+.contact-section-content {
+  display: flex;
+  flex-direction: row;
+  gap: 142px;
+  row-gap: 42px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  min-width: 320px;
+  position: relative;
+}
+.title-description {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.this-is-a-template-figma-file-turned-into-code-using-anima-learn-more-at-anima-app-com-this-is-a-template-figma-file-turned-into-code-using-anima-learn-more-at-anima-app-com {
+  color: #2d2d2d;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Epilogue-Regular", sans-serif);
+  font-size: var(--body-text-font-size, 17px);
+  line-height: var(--body-text-line-height, 27px);
+  font-weight: var(--body-text-font-weight, 400);
+  position: relative;
+  align-self: stretch;
+}
+.social-links {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.discord {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  overflow: visible;
+}
+.facebook {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  overflow: visible;
+}
+.dribbble {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  overflow: visible;
+}
+.nstagram {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  overflow: visible;
+}
+.behance {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  overflow: visible;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  min-width: 320px;
+  max-width: 520px;
+  position: relative;
+}
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.input-field {
+  background: #f3f3f3;
+  padding: 16px 24px 16px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  flex-shrink: 0;
+  min-width: 320px;
+  max-width: 520px;
+  position: relative;
+  overflow: hidden;
+}
+.name {
+  color: #2d2d2d;
+  text-align: left;
+  font-family: var(--body-text-font-family, "Epilogue-Regular", sans-serif);
+  font-size: var(--body-text-font-size, 17px);
+  line-height: var(--body-text-line-height, 27px);
+  font-weight: var(--body-text-font-weight, 400);
+  position: relative;
+  flex: 1;
+}
+.button {
+  background: #2d2d2d;
+  padding: 24px 64px 24px 64px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.contact {
+  color: var(--white, #ffffff);
+  text-align: center;
+  font-family: "Epilogue-SemiBold", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 480px) {
+  .contact-section {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+  }
+
+  .contact-section-content {
+    width: 100%;
+  }
+
+}
+

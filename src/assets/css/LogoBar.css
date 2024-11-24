@@ -1,0 +1,52 @@
+.logo-bar,
+.logo-bar * {
+  box-sizing: border-box;
+}
+.logo-bar {
+  background: #ffffff;
+  padding: 42px 24px 42px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 86px;
+  row-gap: 68px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  position: relative;
+}
+.group-5334 {
+  flex-shrink: 0;
+  width: 116.07px;
+  height: 38.21px;
+  position: relative;
+  overflow: visible;
+}
+.image-1-traced {
+  flex-shrink: 0;
+  width: 86.42px;
+  height: 30.74px;
+  position: relative;
+  overflow: visible;
+}
+.image-5-traced {
+  flex-shrink: 0;
+  width: 113.11px;
+  height: 17.41px;
+  position: relative;
+  overflow: visible;
+}
+.image-2-traced {
+  flex-shrink: 0;
+  width: 38.11px;
+  height: 46.83px;
+  position: relative;
+  overflow: visible;
+}
+.image-7-traced {
+  flex-shrink: 0;
+  width: 64.94px;
+  height: 43.67px;
+  position: relative;
+  overflow: visible;
+}

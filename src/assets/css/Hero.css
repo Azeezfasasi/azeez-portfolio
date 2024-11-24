@@ -1,0 +1,105 @@
+.version-1,
+.version-1 * {
+  box-sizing: border-box;
+}
+.version-1 {
+  background: #ffffff;
+  padding: 42px 24px 42px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 68px;
+  row-gap: 42px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  position: relative;
+}
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  min-width: 320px;
+  max-width: 620px;
+  position: relative;
+}
+.hero-title-subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.hero-title {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--subtitle-font-family, "Epilogue-SemiBold", sans-serif);
+  font-size: var(--subtitle-font-size, 20px);
+  line-height: var(--subtitle-line-height, 30px);
+  font-weight: var(--subtitle-font-weight, 600);
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.hero-subtitle {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--h1-font-family, "Epilogue-SemiBold", sans-serif);
+  font-size: var(--h1-font-size, 68px);
+  font-weight: var(--h1-font-weight, 600);
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.this-is-a-template-figma-file-turned-into-code-using-anima-learn-more-at-anima-app-com {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--body-text-font-family, "Epilogue-Regular", sans-serif);
+  font-size: var(--body-text-font-size, 17px);
+  line-height: var(--body-text-line-height, 27px);
+  font-weight: var(--body-text-font-weight, 400);
+  position: relative;
+  align-self: stretch;
+}
+.button {
+  background: #2d2d2d;
+  padding: 24px 64px 24px 64px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.hero-contact {
+  color: var(--white, #ffffff);
+  text-align: center;
+  font-family: "Epilogue-SemiBold", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.header-image-1 {
+  flex: 1;
+  height: 360px;
+  min-width: 320px;
+  max-width: 480px;
+  position: relative;
+  object-fit: cover;
+}

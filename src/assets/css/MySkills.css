@@ -1,0 +1,99 @@
+.myskills-container,
+.myskills-container * {
+  box-sizing: border-box;
+}
+.myskills-container {
+  background: var(--white, #ffffff);
+  padding: 42px 24px 42px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+.myskills-section {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.skills-card {
+  background: #ffffff;
+  padding: 64px 42px 64px 42px;
+  display: flex;
+  flex-direction: row;
+  gap: 42px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  flex: 1;
+  min-width: 320px;
+  position: relative;
+}
+.skills-card-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  position: relative;
+  overflow: visible;
+}
+.skills-title-description {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+.skills-title {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--h3-font-family, "Epilogue-SemiBold", sans-serif);
+  font-size: var(--h3-font-size, 27px);
+  line-height: var(--h3-line-height, 42px);
+  font-weight: var(--h3-font-weight, 600);
+  position: relative;
+  align-self: stretch;
+}
+.this-is-a-template-figma-file-turned-into-code-using-anima-learn-more-at-anima-app-com {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--body-text-font-family, "Epilogue-Regular", sans-serif);
+  font-size: var(--body-text-font-size, 17px);
+  line-height: var(--body-text-line-height, 27px);
+  font-weight: var(--body-text-font-weight, 400);
+  position: relative;
+  align-self: stretch;
+}
+.skills-card-icon2 {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  position: relative;
+  overflow: visible;
+}
+.skills-card-icon3 {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  position: relative;
+  overflow: visible;
+}
+.skills-card-icon4 {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  position: relative;
+  overflow: visible;
+}

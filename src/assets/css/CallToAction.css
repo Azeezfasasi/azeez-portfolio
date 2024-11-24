@@ -1,0 +1,109 @@
+.version-2,
+.version-2 * {
+  box-sizing: border-box;
+}
+.version-2 {
+  background: #ffffff;
+  padding: 64px 24px 64px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 86px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.frame-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 189px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: auto;
+  position: relative;
+  overflow: visible;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  min-width: 320px;
+  max-width: 460px;
+  position: relative;
+}
+.branding-image-making {
+  color: var(--black, #2d2d2d);
+  text-align: center;
+  font-family: var(--subtitle-font-family, "Epilogue-SemiBold", sans-serif);
+  font-size: var(--subtitle-font-size, 20px);
+  line-height: var(--subtitle-line-height, 30px);
+  font-weight: var(--subtitle-font-weight, 600);
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.visual-designer {
+  color: var(--black, #2d2d2d);
+  text-align: center;
+  font-family: var(--h1-font-family, "Epilogue-SemiBold", sans-serif);
+  font-size: var(--h1-font-size, 68px);
+  font-weight: var(--h1-font-weight, 600);
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.this-is-a-template-figma-file-turned-into-code-using-anima-learn-more-at-anima-app-com {
+  color: var(--black, #2d2d2d);
+  text-align: center;
+  font-family: var(--body-text-font-family, "Epilogue-Regular", sans-serif);
+  font-size: var(--body-text-font-size, 17px);
+  line-height: var(--body-text-line-height, 27px);
+  font-weight: var(--body-text-font-weight, 400);
+  position: relative;
+  align-self: stretch;
+}
+.cta-button {
+  background: #2d2d2d;
+  padding: 24px 64px 24px 64px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.cta-contact {
+  color: var(--white, #ffffff);
+  text-align: center;
+  font-family: "Epilogue-SemiBold", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.frame-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 197px;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: auto;
+  position: relative;
+  overflow: visible;
+}

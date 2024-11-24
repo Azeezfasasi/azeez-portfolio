@@ -1,0 +1,89 @@
+.navigation,
+.navigation * {
+  box-sizing: border-box;
+}
+.navigation {
+  background: #ffffff;
+  padding: 24px 42px 24px 42px;
+  display: flex;
+  flex-direction: row;
+  row-gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: center;
+  position: relative;
+  width: 100%;
+}
+.logo {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--subtitle-font-family, "Epilogue-SemiBold", sans-serif);
+  font-size: var(--subtitle-font-size, 20px);
+  line-height: var(--subtitle-line-height, 30px);
+  font-weight: var(--subtitle-font-weight, 600);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.menu-items {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  position: relative;
+}
+.about {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--body-text-font-family, "Epilogue-Regular", sans-serif);
+  font-size: var(--body-text-font-size, 17px);
+  line-height: var(--body-text-line-height, 27px);
+  font-weight: var(--body-text-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+.about:hover {
+  border-bottom: 2px solid blue;
+}
+.work {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--body-text-font-family, "Epilogue-Regular", sans-serif);
+  font-size: var(--body-text-font-size, 17px);
+  line-height: var(--body-text-line-height, 27px);
+  font-weight: var(--body-text-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+.work:hover {
+  border-bottom: 2px solid blue;
+}
+.contact {
+  color: var(--black, #2d2d2d);
+  text-align: left;
+  font-family: var(--body-text-font-family, "Epilogue-Regular", sans-serif);
+  font-size: var(--body-text-font-size, 17px);
+  line-height: var(--body-text-line-height, 27px);
+  font-weight: var(--body-text-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  justify-content: flex-start;
+}
+
+/* @media only screen and (max-width: 480px) {
+  .navigation {
+
+  }
+} */
