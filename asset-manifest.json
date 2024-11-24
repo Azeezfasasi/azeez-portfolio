@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/azeez-repository/static/css/main.267d31b2.css",
-    "main.js": "/azeez-repository/static/js/main.71d125cb.js",
+    "main.js": "/azeez-repository/static/js/main.c6b90317.js",
     "static/js/453.1407b060.chunk.js": "/azeez-repository/static/js/453.1407b060.chunk.js",
     "static/media/project5.svg": "/azeez-repository/static/media/project5.fc112fd1bf6a5204302e256c3b7d5c02.svg",
     "static/media/project6.svg": "/azeez-repository/static/media/project6.2f4de5ff995815efe2089dd87ddb0694.svg",
@@ -30,11 +30,11 @@
     "static/media/card2.svg": "/azeez-repository/static/media/card2.72b6f15576612743e0905d47c8b28018.svg",
     "static/media/card4.svg": "/azeez-repository/static/media/card4.8754a7a059b591788234ad2405704cf0.svg",
     "main.267d31b2.css.map": "/azeez-repository/static/css/main.267d31b2.css.map",
-    "main.71d125cb.js.map": "/azeez-repository/static/js/main.71d125cb.js.map",
+    "main.c6b90317.js.map": "/azeez-repository/static/js/main.c6b90317.js.map",
     "453.1407b060.chunk.js.map": "/azeez-repository/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.267d31b2.css",
-    "static/js/main.71d125cb.js"
+    "static/js/main.c6b90317.js"
   ]
 }
