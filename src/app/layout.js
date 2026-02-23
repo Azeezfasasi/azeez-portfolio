@@ -6,9 +6,9 @@ import { Toaster } from 'react-hot-toast';
 
 export const metadata = {
   title: 'Azeez Portfolio',
-  description: 'Innovative Engineering Solutions for Modern Projects.',
+  description: 'Bringing ideas to life through innovative design and development.',
   icons: {
-    icon: '/rayob1.jpg',
+    icon: '/azeezfas.png',
     apple: '/apple-icon.png',
   },
 }
