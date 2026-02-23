@@ -9,6 +9,12 @@ const nextConfig = {
       },
     ],
   },
+  // Increase API body size limit for file uploads
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+  },
   /* config options here */
 };
 

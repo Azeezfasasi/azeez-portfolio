@@ -2,6 +2,69 @@
 import React, { useState } from 'react'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 
+// Image compression utility
+const compressImage = async (file, maxSizeMB = 0.5, maxWidthOrHeight = 1920) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    
+    reader.onload = (event) => {
+      const img = new Image()
+      
+      img.onload = () => {
+        const canvas = document.createElement('canvas')
+        let width = img.width
+        let height = img.height
+        
+        // Calculate new dimensions while maintaining aspect ratio
+        if (width > height) {
+          if (width > maxWidthOrHeight) {
+            height *= maxWidthOrHeight / width
+            width = maxWidthOrHeight
+          }
+        } else {
+          if (height > maxWidthOrHeight) {
+            width *= maxWidthOrHeight / height
+            height = maxWidthOrHeight
+          }
+        }
+        
+        canvas.width = width
+        canvas.height = height
+        const ctx = canvas.getContext('2d')
+        ctx.drawImage(img, 0, 0, width, height)
+        
+        // Compress by reducing quality
+        canvas.toBlob(
+          (blob) => {
+            if (blob.size > maxSizeMB * 1024 * 1024) {
+              // If still too large, reduce quality further
+              canvas.toBlob(
+                (smallerBlob) => {
+                  const compressedFile = new File([smallerBlob], file.name, { type: 'image/jpeg' })
+                  resolve(compressedFile)
+                },
+                'image/jpeg',
+                0.6
+              )
+            } else {
+              const compressedFile = new File([blob], file.name, { type: 'image/jpeg' })
+              resolve(compressedFile)
+            }
+          },
+          'image/jpeg',
+          0.8
+        )
+      }
+      
+      img.onerror = () => reject(new Error('Failed to load image'))
+      img.src = event.target.result
+    }
+    
+    reader.onerror = () => reject(new Error('Failed to read file'))
+    reader.readAsDataURL(file)
+  })
+}
+
 export default function AddProjectsPage() {
   const [formData, setFormData] = useState({
     projectName: '',
@@ -34,43 +97,73 @@ export default function AddProjectsPage() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  function handleImageChange(e) {
+  async function handleImageChange(e) {
     const { name, files } = e.target
     if (name === 'featuredImage') {
       const file = files?.[0]
       if (file) {
-        setFormData(prev => ({ ...prev, featuredImage: file }))
-        const reader = new FileReader()
-        reader.onload = (event) => {
-          setFormData(prev => ({
-            ...prev,
-            featuredImagePreview: event.target?.result || ''
-          }))
+        // Check file size
+        const fileSizeMB = file.size / (1024 * 1024)
+        if (fileSizeMB > 5) {
+          setMessage({ type: 'error', text: `Featured image is too large (${fileSizeMB.toFixed(1)}MB). Please use an image under 5MB.` })
+          return
         }
-        reader.readAsDataURL(file)
+
+        try {
+          // Compress image
+          const compressedFile = await compressImage(file, 0.5, 1920)
+          setFormData(prev => ({ ...prev, featuredImage: compressedFile }))
+          const reader = new FileReader()
+          reader.onload = (event) => {
+            setFormData(prev => ({
+              ...prev,
+              featuredImagePreview: event.target?.result || ''
+            }))
+          }
+          reader.readAsDataURL(compressedFile)
+        } catch (err) {
+          setMessage({ type: 'error', text: `Error compressing image: ${err.message}` })
+        }
       }
     } else if (name === 'galleryImages') {
       const fileList = Array.from(files || [])
-      setFormData(prev => ({ ...prev, galleryImages: fileList }))
       
-      // Generate previews
-      const previews = []
-      let loadedCount = 0
-      
-      fileList.forEach((file) => {
-        const reader = new FileReader()
-        reader.onload = (event) => {
-          previews.push(event.target?.result || '')
-          loadedCount++
-          if (loadedCount === fileList.length) {
-            setFormData(prev => ({
-              ...prev,
-              galleryImagePreviews: previews
-            }))
-          }
+      try {
+        // Check total size
+        const totalSize = fileList.reduce((sum, f) => sum + f.size, 0)
+        const totalSizeMB = totalSize / (1024 * 1024)
+        if (totalSizeMB > 10) {
+          setMessage({ type: 'error', text: `Gallery images are too large (${totalSizeMB.toFixed(1)}MB). Please use images under 10MB total.` })
+          return
         }
-        reader.readAsDataURL(file)
-      })
+
+        // Compress all gallery images in parallel
+        const compressedFiles = await Promise.all(
+          fileList.map(file => compressImage(file, 0.4, 1200))
+        )
+        setFormData(prev => ({ ...prev, galleryImages: compressedFiles }))
+        
+        // Generate previews
+        const previews = []
+        let loadedCount = 0
+        
+        compressedFiles.forEach((file) => {
+          const reader = new FileReader()
+          reader.onload = (event) => {
+            previews.push(event.target?.result || '')
+            loadedCount++
+            if (loadedCount === compressedFiles.length) {
+              setFormData(prev => ({
+                ...prev,
+                galleryImagePreviews: previews
+              }))
+            }
+          }
+          reader.readAsDataURL(file)
+        })
+      } catch (err) {
+        setMessage({ type: 'error', text: `Error compressing images: ${err.message}` })
+      }
     }
   }
 
@@ -118,18 +211,26 @@ export default function AddProjectsPage() {
         formData.galleryImages.forEach((file) => data.append('galleryImages', file));
       }
 
-      const response = await fetch('/api/project', { method: 'POST', body: data })
-      const result = await response.json()
-
-      if (response.ok) {
+      const response = await fetch('/api/project', { 
+        method: 'POST', 
+        body: data
+      })
+      
+      if (!response.ok) {
+        const result = await response.json()
+        if (response.status === 413) {
+          setMessage({ type: 'error', text: 'Request too large. Images may be too large or too many. Try uploading fewer or smaller images.' })
+        } else {
+          setMessage({ type: 'error', text: result.message || 'Failed to add project' })
+        }
+      } else {
+        const result = await response.json()
         setMessage({ type: 'success', text: 'Project added successfully!' })
         setFormData({
           projectName: '', projectDescription: '', category: '', location: '', budget: '', startDate: '', expectedEndDate: '',
-          projectStatus: 'planning', clientName: '', teamLead: '', teamMembers: '', featuredImage: null,
-          galleryImages: [], technologies: '', materialsUsed: '', completion: 0, projectHighlights: ''
+          projectStatus: 'planning', clientName: '', clientWebsiteLink: '', teamLead: '', teamMembers: '', featuredImage: null,
+          featuredImagePreview: '', galleryImages: [], galleryImagePreviews: [], technologies: '', materialsUsed: '', completion: 0, projectHighlights: ''
         })
-      } else {
-        setMessage({ type: 'error', text: result.message || 'Failed to add project' })
       }
     } catch (err) {
       setMessage({ type: 'error', text: `Error: ${err.message}` })
