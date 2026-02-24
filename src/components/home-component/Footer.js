@@ -64,8 +64,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/request-a-project" className="hover:text-white transition">
-                Request a Project
+              <Link href="/request-a-quote" className="hover:text-white transition">
+                Request a Quote
               </Link>
             </li>
             <li>
@@ -96,9 +96,7 @@ export default function Footer() {
             <li className="flex items-center gap-3">
               <MapPin size={18} className="text-blue-500 mt-1 w-[38px]" />
               <span>
-                Ikorodu,
-                {/* <br /> */}
-                Lagos, Nigeria.
+                Ikorodu, Lagos, Nigeria.
               </span>
             </li>
             <li className="flex items-center gap-3">
