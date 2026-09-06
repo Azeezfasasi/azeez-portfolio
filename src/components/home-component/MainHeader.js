@@ -167,7 +167,7 @@ export default function MainHeader() {
               </div>
             ) : (
               <>
-                <Link href="/request-a-quote" className="px-4 py-2 bg-blue-900 text-white rounded-md text-sm font-medium hover:bg-blue-800">Request Quote</Link>
+                <Link href="https://docs.google.com/document/d/1jYIXzrQQ62aju5T2rmksHq9Y6Knmi8ad/edit?usp=drive_link&ouid=101076955219674276505&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-blue-900 text-white rounded-md text-sm font-medium hover:bg-blue-800">Download Resume</Link>
               </>
             )}
           </div>
@@ -243,7 +243,7 @@ export default function MainHeader() {
                 </>
               ) : (
                 <>
-                  <Link href="/request-a-quote" onClick={() => setOpen(false)} className="block bg-blue-500 text-white px-4 py-2 rounded-md text-center">Request Quote</Link>
+                  <Link href="https://docs.google.com/document/d/1jYIXzrQQ62aju5T2rmksHq9Y6Knmi8ad/edit?usp=drive_link&ouid=101076955219674276505&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="block bg-blue-500 text-white px-4 py-2 rounded-md text-center">Download Resume</Link>
                 </>
               )}
             </div>

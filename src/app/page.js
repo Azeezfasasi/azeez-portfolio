@@ -11,11 +11,13 @@ import SubscribeToNewsletter from '@/components/home-component/SubscribeToNewsle
 import HomeStats from '@/components/home-component/HomeStats'
 import MyLanguagesServices from '@/components/home-component/MyLanguagesServices'
 import HistoryMilestones from '@/components/home-component/HistoryMilestones'
+import AboutMe from '@/components/home-component/AboutMe'
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <AboutMe />
       <HomeStats />
       <MyLanguagesServices />
       <FeaturedProjects />

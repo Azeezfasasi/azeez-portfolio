@@ -114,6 +114,7 @@ export default function DashboardMenu({ collapsed, mobileOpen = false, onClose =
       roles: ['admin', 'staff-member'],
       children: [
         { href: '/dashboard/hero-profile', label: 'Hero Profile', roles: ['admin', 'staff-member'] },
+        { href: '/dashboard/manage-about-me', label: 'Manage About Me', roles: ['admin', 'staff-member'] },
         { href: '/dashboard/manage-home-stats', label: 'Manage Home Stats', roles: ['admin', 'staff-member'] },
         { href: '/dashboard/manage-languages-services', label: 'Manage Languages & Services', roles: ['admin', 'staff-member'] },
         { href: '/dashboard/our-clients', label: 'Our Clients & Partners', roles: ['admin', 'staff-member'] },
