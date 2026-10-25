@@ -30,7 +30,9 @@ export default function EditProjectPage() {
     technologies: '',
     materialsUsed: '',
     completion: 0,
-    projectHighlights: ''
+    projectHighlights: '',
+    featured: false,
+    featuredOrder: ''
   })
 
   const [loading, setLoading] = useState(true)
@@ -67,7 +69,9 @@ export default function EditProjectPage() {
             technologies: (data.project.technologies || []).join(', '),
             materialsUsed: (data.project.materialsUsed || []).join(', '),
             completion: data.project.completion,
-            projectHighlights: data.project.projectHighlights || ''
+            projectHighlights: data.project.projectHighlights || '',
+            featured: data.project.featured || false,
+            featuredOrder: data.project.featuredOrder ?? ''
           });
           setExistingFeaturedImage(data.project.featuredImage || null);
           setExistingGalleryImages(data.project.galleryImages || []);
@@ -82,8 +86,8 @@ export default function EditProjectPage() {
   }, [projectId]);
 
   function handleInputChange(e) {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
+    const { name, value, type, checked } = e.target
+    setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
   }
 
   function handleImageChange(e) {
@@ -171,6 +175,7 @@ export default function EditProjectPage() {
           : [],
         budget: formData.budget ? Number(formData.budget) : 0,
         completion: formData.completion ? Number(formData.completion) : 0,
+        featuredOrder: formData.featured && formData.featuredOrder ? Number(formData.featuredOrder) : null,
         // Send existing gallery images that weren't removed
         existingGalleryImages: existingGalleryImages
       };
@@ -300,6 +305,21 @@ export default function EditProjectPage() {
               <div>
                 <label htmlFor="completion" className="block text-sm font-medium text-gray-700 mb-2">Completion % (0-100)</label>
                 <input type="number" id="completion" name="completion" value={formData.completion} onChange={handleInputChange} min="0" max="100" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none" />
+              </div>
+            </div>
+          </fieldset>
+
+          {/* Homepage Featured */}
+          <fieldset>
+            <legend className="text-lg font-semibold text-gray-900 mb-4">Homepage</legend>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-center gap-3">
+                <input type="checkbox" id="featured" name="featured" checked={formData.featured} onChange={handleInputChange} className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                <label htmlFor="featured" className="text-sm font-medium text-gray-700">Show in Featured Projects on homepage</label>
+              </div>
+              <div>
+                <label htmlFor="featuredOrder" className="block text-sm font-medium text-gray-700 mb-2">Featured Rank (1 = first)</label>
+                <input type="number" id="featuredOrder" name="featuredOrder" value={formData.featuredOrder} onChange={handleInputChange} min="1" disabled={!formData.featured} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none disabled:bg-gray-100" placeholder="1" />
               </div>
             </div>
           </fieldset>

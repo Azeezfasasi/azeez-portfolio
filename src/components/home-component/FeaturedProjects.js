@@ -15,11 +15,16 @@ export default function FeaturedProjects() {
       try {
         const res = await fetch("/api/project");
         const data = await res.json();
-        // Sort by createdAt descending and take the latest 3
-        const sorted = (data.projects || []).sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
-        setProjects(sorted.slice(0, 3));
+        const all = (data.projects || []).filter((p) => !p.isDisabled);
+        const byNewest = (a, b) => new Date(b.createdAt) - new Date(a.createdAt);
+        const rank = (p) => p.featuredOrder ?? Infinity;
+        // Featured projects first, by rank (1 = first), then newest
+        const featured = all
+          .filter((p) => p.featured)
+          .sort((a, b) => rank(a) - rank(b) || byNewest(a, b));
+        // Fill any remaining slots with the latest non-featured projects
+        const rest = all.filter((p) => !p.featured).sort(byNewest);
+        setProjects([...featured, ...rest].slice(0, 3));
       } catch (err) {
         setProjects([]);
       }
