@@ -30,6 +30,8 @@ const projectSchema = new mongoose.Schema({
   projectHighlights: { type: String },
   featuredImage: { type: String }, // Cloudinary URL
   galleryImages: [{ type: String }], // Array of Cloudinary URLs
+  featured: { type: Boolean, default: false }, // Show on homepage Featured Projects
+  featuredOrder: { type: Number, default: null }, // Homepage rank, 1 = first
   isDisabled: { type: Boolean, default: false },
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
